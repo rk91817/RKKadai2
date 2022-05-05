@@ -43,9 +43,6 @@
                                     <segment title="×"/>
                                     <segment title="÷"/>
                                 </segments>
-                                <connections>
-                                    <action selector="calculateSegumentedControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="7D4-vy-YeE"/>
-                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSe-iK-Zwt">
                                 <rect key="frame" x="179" y="347" width="70" height="31"/>
@@ -84,6 +81,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="calculationSegmentedControl" destination="kYW-Vy-hgC" id="6Gw-1x-L2t"/>
                         <outlet property="firstTextField" destination="axC-1s-moO" id="nxZ-Tt-og5"/>
                         <outlet property="resultLabel" destination="h7p-96-oQK" id="iQb-A8-Nh0"/>
                         <outlet property="secondTextField" destination="MRk-Ag-zvG" id="b8M-xY-SYW"/>

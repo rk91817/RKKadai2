@@ -9,41 +9,28 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var firstTextField: UITextField!
-    @IBOutlet weak var secondTextField: UITextField!
-    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet private weak var firstTextField: UITextField!
+    @IBOutlet private weak var secondTextField: UITextField!
+    @IBOutlet private weak var resultLabel: UILabel!
+    @IBOutlet private weak var calculationSegmentedControl: UISegmentedControl!
     @IBAction private func calculateButton(_ sender: Any) {
         let firstValue = Double(firstTextField.text ?? "") ?? 0
         let secondValue = Double(secondTextField.text ?? "") ?? 0
-        if calc == "plus" {
-            resultLabel.text = String(firstValue + secondValue)
-        } else if calc == "minus" {
-            resultLabel.text = String(firstValue - secondValue)
-        } else if calc == "multiply" {
-            resultLabel.text = String(firstValue * secondValue)
-        } else if calc == "divide" {
-            if secondValue != 0 {
-            resultLabel.text = String(firstValue / secondValue)
-            } else if secondValue == 0 {
-                resultLabel.text = "割る数には０以外を入力して下さい"
-            }
-        }
-    }
-
-     var calc = ""
-
-    @IBAction private func calculateSegumentedControl(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
+        switch calculationSegmentedControl.selectedSegmentIndex {
         case 0:
-             calc = "plus"
+            resultLabel.text = String(firstValue + secondValue)
         case 1:
-             calc = "minus"
+            resultLabel.text = String(firstValue - secondValue)
         case 2:
-             calc = "multiply"
+            resultLabel.text = String(firstValue * secondValue)
         case 3:
-             calc = "divide"
+            if secondValue == 0 {
+                resultLabel.text = "割る数には０以外を入力して下さい"
+            } else {
+                resultLabel.text = String(firstValue / secondValue)
+            }
         default:
-            calc = ""
+             fatalError("selectedSegmentIndexが異常です")
         }
     }
     override func viewDidLoad() {
